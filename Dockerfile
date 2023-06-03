@@ -1,9 +1,17 @@
 FROM ravindu01manoj/sewqueen:fullcontrol
 
-RUN git clone https://github.com/ravindu01manoj/xnxx-dl-wabot /root/xnxx
-WORKDIR /root/xnxx/
-ENV TZ=Asia/Colombo
-RUN npm install supervisor -g
-RUN yarn install --no-audit
+FROM node:lts-buster
+
+RUN apt-get update && \
+  apt-get install -y \
+  ffmpeg \
+  imagemagick \
+  webp && \
+  apt-get upgrade -y && \
+  rm -rf /var/lib/apt/lists/*
+
+
+RUN npm install
+
 
 CMD ["node", "xnxx.js"]
