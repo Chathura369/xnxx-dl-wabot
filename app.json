@@ -6,7 +6,7 @@
     "env": {
         "_XNXX_SESSION": {
             "description": "wa session",
-            "required": true
+            "required": false
         },
         "HEROKU_API_KEY": {
             "description": "Heroku API Key.",
